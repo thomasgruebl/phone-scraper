@@ -15,7 +15,7 @@ from torpy.circuit import CellTimeoutError
 from torpy.circuit import CircuitExtendError
 from torpy.http.requests import TorRequests
 
-from phonescraper import helpers
+import helpers
 
 
 class Phone:
