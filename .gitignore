@@ -1,6 +1,7 @@
 # custom
 phone_list_output.txt
 *.log
+*.out
 
 
 # Byte-compiled / optimized / DLL files
