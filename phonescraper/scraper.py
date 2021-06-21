@@ -168,7 +168,12 @@ async def main():
             email.establish_connection()
 
         print(f"Repeating in {int(repeat)} minute(s)...\n\n")
-        time.sleep(repeat * 60)
+
+        try:
+            time.sleep(repeat * 60)
+        except OverflowError:
+            logging.exception("--repeat argument value too large.")
+
 
 if __name__ == "__main__":
     loop = asyncio.get_event_loop()

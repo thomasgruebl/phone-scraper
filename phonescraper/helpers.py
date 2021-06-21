@@ -26,9 +26,13 @@ def ping(dest: str):
 
 def print_to_file(phone_list: list):
     """Print phone numbers to output file"""
-    with open('../phone_list_output.txt', 'w') as f:
-        for line in phone_list:
-            f.writelines(line + '\n')
+    try:
+        with open('../phone_list_output.txt', 'w') as f:
+            for line in phone_list:
+                f.writelines(line + '\n')
+    except:
+        logging.exception("Writing to output file failed.")
+    logging.debug("Printed phone numbers to output file.")
 
 
 class Args:
@@ -50,7 +54,7 @@ class Args:
         parser.add_argument('-e', '--email',
                             type=str,
                             default=argparse.SUPPRESS,
-                            help='add your email address to receive a notification when a brand new phone number appears.')
+                            help='add your email address to receive a notification when a new phone number appears.')
 
         parser.add_argument('-m', '--maxage',
                             type=int,
@@ -60,7 +64,7 @@ class Args:
         parser.add_argument('-r', '--repeat',
                             type=int,
                             default=argparse.SUPPRESS,
-                            help='specify the repeat interval in minutes for fetching phone numbers.')
+                            help='specify the repetition interval in minutes for fetching phone numbers.')
 
         try:
             args = parser.parse_args()
