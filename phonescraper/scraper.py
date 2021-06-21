@@ -166,6 +166,7 @@ async def main():
             print("Email flag set.")
             email = helpers.Email(arg_dict['email'], phone_list)
             email.establish_connection()
+            del email
 
         print(f"Repeating in {int(repeat)} minute(s)...\n\n")
 
