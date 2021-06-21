@@ -118,8 +118,10 @@ class Email:
                f"The following phone numbers have been recently added:\n\n{tidy_phone_list}"
         message = f"{subject}\n\n{body}"
         msg = MIMEText(message)
+
+        self.phone_list.clear()
         del tidy_phone_list
-        
+
         return msg
 
     def __send_email(self, connection, msg):

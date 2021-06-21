@@ -168,6 +168,7 @@ async def main():
             email.establish_connection()
             del email
 
+        phone_list.clear()
         del phone_list
         print(f"Repeating in {int(repeat)} minute(s)...\n\n")
 
