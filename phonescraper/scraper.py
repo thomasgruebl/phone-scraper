@@ -67,6 +67,7 @@ def initialise():
 
 async def request(s, max_age):
     """scrape the sites listed in sites.json using the TOR network (new IP for every cycle)"""
+    out_list = list()
     try:
         with TorRequests() as tor_requests:
             print("Building TOR circuit")
